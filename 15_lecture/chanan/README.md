@@ -1,1 +1,0 @@
-Notes for lecture 15
