@@ -55,4 +55,27 @@
 (define (insert-and items) (sentence (butlast items) 'and (last items)))
 (insert-and '(brian john james sally))
 
+; # #Exercise 6.5
+(define (pm? time) (equal? (last time) 'pm))
+(define (hours time) (first time))
+(define (european-time time) (if (pm? time) (+ (hours time) 12) (hours time)))
+(european-time '(8 am))
+(european-time '(4 pm))
+(european-time '(12 pm))
 
+
+; # #Exercise 6.7
+(define (type-of arg) 
+    (cond ((boolean? arg) 'BOOLEAN)
+          ((number?  arg) 'NUMBER)
+          ((word?  arg) 'WORD)
+          ((sentence?  arg) 'SENTENCE))
+)
+
+(type-of '(getting better))
+(type-of '4)
+
+; # #Exercise 6.8
+(define (vowel? letter) (member? letter 'aeiou))
+(define (indef-article wd) (if ( vowel? (first wd)) (sentence 'AN wd) (sentence 'A wd)))
+(indef-article 'hat)
